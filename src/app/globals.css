@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Maximalist ledger — paleta tomada de Monrys Capital:
+ * navy profundo, amber primario, violeta de acento, verde/rojo de estado.
+ */
+:root {
+  color-scheme: dark;
+
+  --background: 217 44% 11%; /* #0f172a */
+  --background-deep: 222 51% 8%; /* #0a0f1e */
+  --foreground: 210 40% 98%; /* #f8fafc */
+  --card: 223 20% 17%; /* #222735 */
+  --card-foreground: 210 40% 98%;
+  --popover: 223 20% 17%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 38 92% 50%; /* #f59e0b */
+  --primary-foreground: 217 44% 11%;
+  --secondary: 43 96% 56%; /* #fbbf24 */
+  --secondary-foreground: 217 44% 11%;
+
+  --accent: 258 90% 66%; /* #8b5cf6 */
+  --accent-foreground: 0 0% 0%;
+  --success: 142 71% 45%; /* #22c55e */
+  --warning: 38 92% 50%;
+  --danger: 0 84% 60%; /* #ef4444 */
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 0%;
+
+  --muted: 222 30% 21%; /* #272f42 */
+  --muted-foreground: 213 31% 65%; /* #94a3b8 */
+  --border: 215 28% 27%; /* #334155 */
+  --input: 215 28% 27%;
+  --ring: 38 92% 50%;
+
+  --hairline: rgba(245, 158, 11, 0.28);
+  --grid-line: rgba(148, 163, 184, 0.07);
+
+  --radius: 10px;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--background));
+  background-image:
+    radial-gradient(1100px 520px at 85% -8%, rgba(245, 158, 11, 0.13), transparent 62%),
+    radial-gradient(700px 420px at -10% 105%, rgba(139, 92, 246, 0.12), transparent 60%),
+    linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background-deep)) 100%);
+  background-attachment: fixed;
+  font-feature-settings: "tnum" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-mono,
+code,
+kbd {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+::selection {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+*:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+input,
+textarea,
+select {
+  color-scheme: dark;
+}
+
+select option {
+  background: hsl(var(--card));
+  color: hsl(var(--foreground));
+}
+
+.hairline-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.panel {
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: hsl(var(--card));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+.accent-glow {
+  box-shadow: 0 0 0 1px var(--hairline), 0 0 28px rgba(245, 158, 11, 0.18);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
